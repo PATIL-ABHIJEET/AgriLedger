@@ -311,3 +311,48 @@ align-items:flex-start;
 }
 
 }
+
+/* =========================
+   QUICK ACTIONS
+========================= */
+
+.quick-actions{
+    display:flex;
+    gap:15px;
+    margin:25px 0;
+    flex-wrap:wrap;
+}
+
+.quick-actions button{
+
+    border:none;
+    cursor:pointer;
+
+    padding:14px 24px;
+
+    border-radius:50px;
+
+    background:#2D6A4F;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.quick-actions button:hover{
+
+    background:#40916C;
+
+    transform:translateY(-4px);
+
+}
+
+.quick-actions i{
+
+    margin-right:8px;
+
+}
