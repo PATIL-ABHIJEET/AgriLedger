@@ -59,3 +59,37 @@ new Chart(expense,{
     }
 
 });
+
+const counters=document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+
+const target=+counter.dataset.target;
+
+let count=0;
+
+const speed=120;
+
+const update=()=>{
+
+const increment=target/speed;
+
+if(count<target){
+
+count+=increment;
+
+counter.innerText=Math.ceil(count).toLocaleString("en-IN");
+
+requestAnimationFrame(update);
+
+}else{
+
+counter.innerText=target.toLocaleString("en-IN");
+
+}
+
+}
+
+update();
+
+});
