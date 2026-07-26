@@ -2,64 +2,101 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Management | AgriLedger</title>
 
-<meta charset="UTF-8">
+    <link rel="stylesheet" href="crop.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Crop Management | AgriLedger</title>
-
-<link rel="stylesheet" href="crop.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <header>
+        <!-- Header -->
+        <header>
 
-        <h1>🌾 Crop Management</h1>
+            <h1>🌾 Crop Management</h1>
 
-        <button id="addCropBtn">
+            <button id="addCropBtn">
+                <i class="fa-solid fa-plus"></i>
+                Add Crop
+            </button>
 
-            <i class="fa-solid fa-plus"></i>
+        </header>
 
-            Add Crop
+        <!-- Search & Filter -->
+        <div class="toolbar">
 
-        </button>
+            <input type="text" placeholder="Search crop...">
 
-    </header>
+            <select>
+                <option>All Seasons</option>
+                <option>Kharif</option>
+                <option>Rabi</option>
+                <option>Zaid</option>
+            </select>
 
-    <div class="toolbar">
+        </div>
 
-        <input
-            type="text"
-            placeholder="Search crop...">
+        <!-- Crop Cards -->
+        <section class="crop-grid">
 
-        <select>
+            <!-- Wheat -->
+            <div class="crop-card">
 
-            <option>All Seasons</option>
-            <option>Kharif</option>
-            <option>Rabi</option>
-            <option>Zaid</option>
+                <div class="status active">
+                    Growing
+                </div>
 
-        </select>
+                <h2>🌾 Wheat</h2>
+
+                <p><strong>Area:</strong> 5 Acres</p>
+
+                <p><strong>Season:</strong> Rabi</p>
+
+                <p><strong>Expected Yield:</strong> 20 Tons</p>
+
+                <button>Edit</button>
+
+                <button class="delete">
+                    Delete
+                </button>
+
+            </div>
+
+            <!-- Maize -->
+            <div class="crop-card">
+
+                <div class="status harvest">
+                    Ready for Harvest
+                </div>
+
+                <h2>🌽 Maize</h2>
+
+                <p><strong>Area:</strong> 3 Acres</p>
+
+                <p><strong>Season:</strong> Kharif</p>
+
+                <p><strong>Expected Yield:</strong> 15 Tons</p>
+
+                <button>Edit</button>
+
+                <button class="delete">
+                    Delete
+                </button>
+
+            </div>
+
+        </section>
 
     </div>
 
-    <section class="crop-grid">
-
-        <!-- Cards go here -->
-
-    </section>
-
-</div>
-
-<script src="crop.js"></script>
+    <script src="crop.js"></script>
 
 </body>
 
