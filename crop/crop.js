@@ -79,6 +79,18 @@ saveBtn.onclick = () => {
     `;
 
     cropGrid.appendChild(card);
+    const deleteBtn = card.querySelector(".delete");
+
+deleteBtn.addEventListener("click", () => {
+
+    if(confirm("Are you sure you want to delete this crop?")){
+
+        card.remove();
+
+    }
+
+});
+
 
     modal.style.display = "none";
 
@@ -87,3 +99,17 @@ saveBtn.onclick = () => {
     document.getElementById("cropSeason").value = "";
     document.getElementById("cropYield").value = "";
 };
+
+document.querySelectorAll(".delete").forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        if(confirm("Delete this crop?")){
+
+            this.closest(".crop-card").remove();
+
+        }
+
+    });
+
+});
