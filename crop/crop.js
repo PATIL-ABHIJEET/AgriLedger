@@ -113,3 +113,29 @@ document.querySelectorAll(".delete").forEach(button => {
     });
 
 });
+
+const search = document.getElementById("searchCrop");
+
+search.addEventListener("keyup", () => {
+
+    const value = search.value.toLowerCase();
+
+    const cards = document.querySelectorAll(".crop-card");
+
+    cards.forEach(card=>{
+
+        const cropName = card.querySelector("h2").textContent.toLowerCase();
+
+        if(cropName.includes(value)){
+
+            card.style.display="block";
+
+        }else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+});
