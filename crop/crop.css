@@ -56,14 +56,43 @@ margin-bottom:30px;
 
 }
 
-.toolbar input,
+.toolbar input{
+
+width:280px;
+
+padding:14px;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+.toolbar input:focus{
+
+outline:none;
+
+border-color:#2D6A4F;
+
+box-shadow:0 0 8px rgba(45,106,79,.3);
+
+}
+
 .toolbar select{
 
-padding:12px;
+padding:14px;
 
-border-radius:8px;
+border-radius:10px;
 
-border:1px solid #ccc;
+border:1px solid #ddd;
+
+font-size:15px;
+
+cursor:pointer;
 
 }
 
