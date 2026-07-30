@@ -37,7 +37,7 @@ saveBtn.onclick = () => {
 
     card.innerHTML = `
         <div class="card-top">
-            <div class="crop-icon">🌱</div>
+            <div class="crop-icon">${getCropIcon(name)}</div>
             <span class="status active">Growing</span>
         </div>
 
@@ -139,3 +139,27 @@ search.addEventListener("keyup", () => {
     });
 
 });
+
+function getCropIcon(name){
+    switch(name.toLowerCase()){
+        case "wheat":
+        case "rice":
+            return "🌾";
+        case "cotton":
+            return "🌿";
+        case "maize":
+            return "🌽";
+        case "potato":
+            return "🥔";
+        case "tomato":
+            return "🍅";
+        case "onion":
+            return "🧅";
+        case "sugarcane":
+            return "🎋";
+        default:
+            return "🌱";
+    }
+}
+
+const filter = document.getElementById("seasonFilter");
