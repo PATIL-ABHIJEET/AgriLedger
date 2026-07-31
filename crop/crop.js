@@ -4,6 +4,14 @@ const closeBtn = document.getElementById("closeModal");
 const saveBtn = document.getElementById("saveCrop");
 
 const cropGrid = document.getElementById("cropGrid");
+const growthSlider=document.getElementById("cropGrowth");
+const growthValue=document.getElementById("growthValue");
+
+growthSlider.oninput=()=>{
+
+growthValue.innerHTML=growthSlider.value+"%";
+
+}
 
 addBtn.onclick = () => {
     modal.style.display = "flex";
@@ -25,6 +33,9 @@ saveBtn.onclick = () => {
     const area = document.getElementById("cropArea").value.trim();
     const season = document.getElementById("cropSeason").value.trim();
     const yieldValue = document.getElementById("cropYield").value.trim();
+    const growth=document.getElementById("cropGrowth").value;
+
+const status=document.getElementById("cropStatus").value;
 
     if(name === "" || area === "" || season === "" || yieldValue === ""){
         alert("Please fill all fields.");
@@ -38,7 +49,21 @@ saveBtn.onclick = () => {
     card.innerHTML = `
         <div class="card-top">
             <div class="crop-icon">${getCropIcon(name)}</div>
-            <span class="status active">Growing</span>
+            <span class="status ${
+status==="Growing"
+?
+"active"
+:
+status==="Ready for Harvest"
+?
+"harvest"
+:
+"completed"
+}">
+
+${status}
+
+</span>
         </div>
 
         <h2>${name}</h2>
@@ -55,13 +80,13 @@ saveBtn.onclick = () => {
 
                 <span>Growth</span>
 
-                <span>0%</span>
+                <span>${growth}%</span>
 
             </div>
 
             <div class="progress">
 
-                <div class="progress-fill" style="width:0%;"></div>
+                <div class="progress-fill" style="width:${growth}%""></div>
 
             </div>
 
@@ -92,7 +117,9 @@ deleteBtn.addEventListener("click", () => {
 });
 
 
-    modal.style.display = "none";
+    modal.style.display="none";
+
+showToast("Crop Added Successfully");
 
     document.getElementById("cropName").value = "";
     document.getElementById("cropArea").value = "";
@@ -163,3 +190,21 @@ function getCropIcon(name){
 }
 
 const filter = document.getElementById("seasonFilter");
+
+function showToast(message){
+
+const toast=document.createElement("div");
+
+toast.className="toast";
+
+toast.innerHTML=message;
+
+document.body.appendChild(toast);
+
+setTimeout(()=>{
+
+toast.remove();
+
+},2500);
+
+}
