@@ -97,6 +97,29 @@ placeholder="Search crop...">
 </select>
         <input type="text" id="cropYield" placeholder="Expected Yield">
 
+        <label>Growth (%)</label>
+
+<input
+type="range"
+id="cropGrowth"
+min="0"
+max="100"
+value="50">
+
+<p id="growthValue">50%</p>
+
+<label>Status</label>
+
+<select id="cropStatus">
+
+    <option>Growing</option>
+
+    <option>Ready for Harvest</option>
+
+    <option>Harvested</option>
+
+</select>
+
         <button id="saveCrop">
             Save Crop
         </button>
@@ -183,3 +206,4 @@ placeholder="Search crop...">
 </body>
 
 </html>
+
