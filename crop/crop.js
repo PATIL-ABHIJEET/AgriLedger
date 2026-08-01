@@ -84,6 +84,7 @@ saveBtn.onclick = () => {
     `;
 
     cropGrid.appendChild(card);
+    saveData();
 
     // Attach Edit button
     attachEdit(card.querySelector(".edit"));
@@ -247,3 +248,41 @@ loadData();
 document.querySelectorAll(".edit").forEach((btn) => {
     attachEdit(btn);
 });
+
+function saveData(){
+
+localStorage.setItem("cropData",cropGrid.innerHTML);
+
+}
+
+function loadData(){
+
+const data=localStorage.getItem("cropData");
+
+if(data){
+
+cropGrid.innerHTML=data;
+
+document.querySelectorAll(".delete").forEach(btn=>{
+
+btn.addEventListener("click",function(){
+
+this.closest(".crop-card").remove();
+
+saveData();
+
+});
+
+});
+
+document.querySelectorAll(".edit").forEach(btn=>{
+
+attachEdit(btn);
+
+});
+
+}
+
+}
+
+loadData();
