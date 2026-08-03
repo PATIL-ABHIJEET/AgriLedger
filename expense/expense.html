@@ -59,6 +59,45 @@ placeholder="Search Expense">
 </div>
 
 <section class="expense-grid" id="expenseGrid">
+    <!-- Expense Modal -->
+
+<div class="modal" id="expenseModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2>Add Expense</h2>
+            <span id="closeModal">&times;</span>
+        </div>
+
+        <input type="text" id="expenseTitle" placeholder="Expense Title">
+
+        <input type="number" id="expenseAmount" placeholder="Amount">
+
+        <select id="expenseCategory">
+
+            <option value="">Select Category</option>
+            <option>Seeds</option>
+            <option>Fertilizer</option>
+            <option>Labor</option>
+            <option>Fuel</option>
+            <option>Machinery</option>
+
+        </select>
+
+        <input type="date" id="expenseDate">
+
+        <textarea id="expenseNote" placeholder="Notes"></textarea>
+
+        <button id="saveExpense">
+
+            Save Expense
+
+        </button>
+
+    </div>
+
+</div>
 
 </section>
 
