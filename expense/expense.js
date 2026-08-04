@@ -60,15 +60,29 @@ card.innerHTML=`
 
 <p><strong>₹ ${amount}</strong></p>
 
-<p>${category}</p>
+<p class="category">${category}</p>
 
 <p>${date}</p>
 
 <p>${note}</p>
 
+<div class="buttons">
+
+<button class="delete">
+
+Delete
+
+</button>
+
+</div>
+
 `;
 
 grid.appendChild(card);
+
+attachDelete(card.querySelector(".delete"));
+
+updateSummary();
 
 saveData();
 
@@ -98,6 +112,14 @@ if(data){
 
 grid.innerHTML=data;
 
+document.querySelectorAll(".delete").forEach(btn=>{
+
+attachDelete(btn);
+
+});
+
+updateSummary();
+
 }
 
 }
@@ -121,3 +143,60 @@ toast.remove();
 }
 
 loadData();
+
+function attachDelete(button){
+
+button.addEventListener("click",()=>{
+
+if(confirm("Delete this expense?")){
+
+button.closest(".expense-card").remove();
+
+saveData();
+
+updateSummary();
+
+}
+
+});
+
+}
+
+function updateSummary(){
+
+const cards=document.querySelectorAll(".expense-card");
+
+let total=0;
+
+cards.forEach(card=>{
+
+const amount=card.querySelector("strong")
+.innerText
+.replace("₹","")
+.trim();
+
+total+=Number(amount);
+
+});
+
+document.getElementById("totalExpense").innerHTML="₹"+total;
+
+document.getElementById("totalRecords").innerHTML=cards.length;
+
+}
+
+const search=document.getElementById("searchExpense");
+
+search.addEventListener("keyup",()=>{
+
+const value=search.value.toLowerCase();
+
+document.querySelectorAll(".expense-card").forEach(card=>{
+
+const title=card.querySelector("h2").innerText.toLowerCase();
+
+card.style.display=title.includes(value)?"block":"none";
+
+});
+
+});

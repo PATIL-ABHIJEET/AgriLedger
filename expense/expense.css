@@ -173,3 +173,55 @@ padding:15px 25px;
 border-radius:10px;
 
 }
+
+.summary{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+margin-bottom:30px;
+
+}
+
+.summary-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.summary-card h3{
+
+color:#666;
+
+margin-bottom:10px;
+
+}
+
+.summary-card h2{
+
+color:#2D6A4F;
+
+}
+
+.expense-card{
+
+position:relative;
+
+transition:.3s;
+
+}
+
+.expense-card:hover{
+
+transform:translateY(-5px);
+
+}
