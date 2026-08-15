@@ -225,3 +225,20 @@ transition:.3s;
 transform:translateY(-5px);
 
 }
+
+.chart-card{
+
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    margin-bottom:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.chart-card h2{
+
+    margin-bottom:20px;
+    color:#1B4332;
+
+}

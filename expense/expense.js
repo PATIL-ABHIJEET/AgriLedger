@@ -200,3 +200,68 @@ card.style.display=title.includes(value)?"block":"none";
 });
 
 });
+
+const categoryFilter = document.getElementById("categoryFilter");
+
+categoryFilter.addEventListener("change", () => {
+
+    const value = categoryFilter.value.toLowerCase();
+
+    document.querySelectorAll(".expense-card").forEach(card => {
+
+        const category = card
+            .querySelector(".category")
+            .innerText
+            .toLowerCase();
+
+        if (value === "all categories" || category === value) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+const ctx = document.getElementById("expenseChart");
+
+new Chart(ctx, {
+
+    type: "doughnut",
+
+    data: {
+
+        labels: [
+            "Seeds",
+            "Fertilizer",
+            "Labor",
+            "Fuel",
+            "Machinery"
+        ],
+
+        datasets: [{
+            data: [12000, 8000, 15000, 5000, 7000]
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+                position: "bottom"
+            }
+
+        }
+
+    }
+
+});
