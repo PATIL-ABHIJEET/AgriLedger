@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sales Management | AgriLedger</title>
+
+    <link rel="stylesheet" href="sales.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+
+    <header>
+
+        <div>
+
+            <h1>💰 Sales Management</h1>
+
+            <p>Track your crop sales and farm income.</p>
+
+        </div>
+
+        <button id="addSaleBtn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Record Sale
+
+        </button>
+
+    </header>
+
+
+    <!-- Summary -->
+
+    <section class="summary">
+
+        <div class="summary-card">
+
+            <h3>Total Sales</h3>
+
+            <h2 id="totalSales">₹0</h2>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Total Transactions</h3>
+
+            <h2 id="totalTransactions">0</h2>
+
+        </div>
+
+    </section>
+
+
+    <!-- Search -->
+
+    <div class="toolbar">
+
+        <input
+            type="text"
+            id="searchSale"
+            placeholder="Search crop sale...">
+
+
+        <select id="saleFilter">
+
+            <option>All Crops</option>
+
+            <option>Wheat</option>
+
+            <option>Rice</option>
+
+            <option>Cotton</option>
+
+            <option>Maize</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- Sales -->
+
+    <section class="sales-grid" id="salesGrid">
+
+    </section>
+
+</div>
+
+
+<!-- Sale Modal -->
+
+<div class="modal" id="saleModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Record Sale</h2>
+
+            <span id="closeSaleModal">&times;</span>
+
+        </div>
+
+
+        <select id="saleCrop">
+
+            <option value="">Select Crop</option>
+
+            <option>Wheat</option>
+
+            <option>Rice</option>
+
+            <option>Cotton</option>
+
+            <option>Maize</option>
+
+        </select>
+
+
+        <input
+            type="number"
+            id="saleQuantity"
+            placeholder="Quantity (Tons)">
+
+
+        <input
+            type="number"
+            id="saleAmount"
+            placeholder="Sale Amount">
+
+
+        <input
+            type="date"
+            id="saleDate">
+
+
+        <input
+            type="text"
+            id="buyerName"
+            placeholder="Buyer Name">
+
+
+        <button id="saveSale">
+
+            Record Sale
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="sales.js"></script>
+
+</body>
+
+</html>
