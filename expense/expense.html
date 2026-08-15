@@ -3,15 +3,15 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Expense Management</title>
+    <title>Expense Management | AgriLedger</title>
 
-<link rel="stylesheet" href="expense.css">
+    <link rel="stylesheet" href="expense.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
@@ -19,89 +19,148 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <div class="container">
 
-<header>
+    <!-- Header -->
+    <header>
 
-<h1>💰 Expense Management</h1>
+        <div>
+            <h1>💰 Expense Management</h1>
+            <p>Track and manage your farm expenses.</p>
+        </div>
 
-<button id="addExpenseBtn">
+        <button id="addExpenseBtn">
 
-<i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-plus"></i>
 
-Add Expense
+            Add Expense
 
-</button>
+        </button>
 
-</header>
+    </header>
 
-<section class="summary">
 
-    <div class="summary-card">
-        <h3>Total Expenses</h3>
-        <h2 id="totalExpense">₹0</h2>
+    <!-- Summary Cards -->
+    <section class="summary">
+
+        <div class="summary-card">
+
+            <h3>Total Expenses</h3>
+
+            <h2 id="totalExpense">₹0</h2>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Total Records</h3>
+
+            <h2 id="totalRecords">0</h2>
+
+        </div>
+
+    </section>
+
+
+    <!-- Expense Chart -->
+    <div class="chart-card">
+
+        <h2>Expense Breakdown</h2>
+
+        <canvas id="expenseChart"></canvas>
+
     </div>
 
-    <div class="summary-card">
-        <h3>Total Records</h3>
-        <h2 id="totalRecords">0</h2>
+
+    <!-- Search & Filter -->
+    <div class="toolbar">
+
+        <input
+            type="text"
+            id="searchExpense"
+            placeholder="Search Expense">
+
+
+        <select id="categoryFilter">
+
+            <option>All Categories</option>
+
+            <option>Seeds</option>
+
+            <option>Fertilizer</option>
+
+            <option>Labor</option>
+
+            <option>Fuel</option>
+
+            <option>Machinery</option>
+
+        </select>
+
     </div>
 
-</section>
 
-<div class="toolbar">
+    <!-- Expense Cards -->
+    <section class="expense-grid" id="expenseGrid">
 
-<input
-type="text"
-id="searchExpense"
-placeholder="Search Expense">
+        <!-- Expense cards will be added here using JavaScript -->
 
-<select id="categoryFilter">
-
-<option>All Categories</option>
-
-<option>Seeds</option>
-
-<option>Fertilizer</option>
-
-<option>Labor</option>
-
-<option>Fuel</option>
-
-<option>Machinery</option>
-
-</select>
+    </section>
 
 </div>
 
-<section class="expense-grid" id="expenseGrid">
-    <!-- Expense Modal -->
 
+<!-- Add Expense Modal -->
 <div class="modal" id="expenseModal">
 
     <div class="modal-content">
 
         <div class="modal-header">
+
             <h2>Add Expense</h2>
+
             <span id="closeModal">&times;</span>
+
         </div>
 
-        <input type="text" id="expenseTitle" placeholder="Expense Title">
 
-        <input type="number" id="expenseAmount" placeholder="Amount">
+        <input
+            type="text"
+            id="expenseTitle"
+            placeholder="Expense Title">
+
+
+        <input
+            type="number"
+            id="expenseAmount"
+            placeholder="Amount">
+
 
         <select id="expenseCategory">
 
             <option value="">Select Category</option>
+
             <option>Seeds</option>
+
             <option>Fertilizer</option>
+
             <option>Labor</option>
+
             <option>Fuel</option>
+
             <option>Machinery</option>
 
         </select>
 
-        <input type="date" id="expenseDate">
 
-        <textarea id="expenseNote" placeholder="Notes"></textarea>
+        <input
+            type="date"
+            id="expenseDate">
+
+
+        <textarea
+            id="expenseNote"
+            placeholder="Notes"></textarea>
+
 
         <button id="saveExpense">
 
@@ -113,10 +172,11 @@ placeholder="Search Expense">
 
 </div>
 
-</section>
 
-</div>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<!-- Expense JavaScript -->
 <script src="expense.js"></script>
 
 </body>
