@@ -97,9 +97,19 @@ saveBtn.onclick = () => {
             ${date || "Not specified"}
         </p>
 
-        <button class="delete-sale">
-            Delete
-        </button>
+        <div class="sale-actions">
+
+    <button class="edit-sale">
+        <i class="fa-solid fa-pen"></i>
+        Edit
+    </button>
+
+    <button class="delete-sale">
+        <i class="fa-solid fa-trash"></i>
+        Delete
+    </button>
+
+</div>
 
     `;
 
@@ -108,8 +118,75 @@ saveBtn.onclick = () => {
 
 
     attachDelete(
-        card.querySelector(".delete-sale")
-    );
+    card.querySelector(".delete-sale")
+);
+
+attachEdit(
+    card.querySelector(".edit-sale")
+);
+
+    function attachEdit(button){
+
+    button.addEventListener("click", () => {
+
+        const card = button.closest(".sale-card");
+
+        const crop = card
+            .querySelector("h2")
+            .innerText
+            .replace("🌾 ","");
+
+        const quantity = card
+            .querySelectorAll("p")[0]
+            .innerText
+            .replace("Quantity:","")
+            .replace(" Tons","")
+            .trim();
+
+        const amount = card
+            .querySelector(".sale-amount")
+            .innerText
+            .replace("₹","")
+            .replace(/,/g,"")
+            .trim();
+
+        const buyer = card
+            .querySelectorAll("p")[2]
+            .innerText
+            .replace("Buyer:","")
+            .trim();
+
+        const date = card
+            .querySelectorAll("p")[3]
+            .innerText
+            .replace("Date:","")
+            .trim();
+
+
+        document.getElementById("saleCrop").value = crop;
+
+        document.getElementById("saleQuantity").value = quantity;
+
+        document.getElementById("saleAmount").value = amount;
+
+        document.getElementById("buyerName").value =
+            buyer === "Not specified" ? "" : buyer;
+
+        document.getElementById("saleDate").value =
+            date === "Not specified" ? "" : date;
+
+
+        card.remove();
+
+        saveData();
+
+        updateSummary();
+
+        modal.style.display = "flex";
+
+    });
+
+}
 
 
     saveData();
@@ -188,6 +265,14 @@ function loadData(){
                 attachDelete(button);
 
             });
+
+            document
+    .querySelectorAll(".edit-sale")
+    .forEach(button => {
+
+        attachEdit(button);
+
+    });
 
     }
 

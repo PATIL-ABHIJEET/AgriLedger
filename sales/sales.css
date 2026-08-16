@@ -319,3 +319,54 @@ header p{
     background:#1B4332;
 
 }
+
+.sale-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+.edit-sale,
+.delete-sale{
+
+    padding:9px 15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.edit-sale{
+
+    background:#D8F3DC;
+
+    color:#1B4332;
+
+}
+
+.delete-sale{
+
+    background:#E63946;
+
+    color:white;
+
+}
+
+.edit-sale:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.delete-sale:hover{
+
+    transform:translateY(-2px);
+
+}
