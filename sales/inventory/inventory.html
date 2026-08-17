@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventory | AgriLedger</title>
+
+    <link rel="stylesheet" href="inventory.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <div>
+            <h1>📦 Inventory Management</h1>
+            <p>Track farm supplies and stock levels.</p>
+        </div>
+
+        <button id="addInventoryBtn">
+            <i class="fa-solid fa-plus"></i>
+            Add Inventory
+        </button>
+
+    </header>
+
+
+    <section class="summary">
+
+        <div class="summary-card">
+            <h3>Total Items</h3>
+            <h2 id="totalItems">0</h2>
+        </div>
+
+        <div class="summary-card">
+            <h3>Total Stock Value</h3>
+            <h2 id="totalValue">₹0</h2>
+        </div>
+
+        <div class="summary-card">
+            <h3>Low Stock</h3>
+            <h2 id="lowStock">0</h2>
+        </div>
+
+    </section>
+
+
+    <div class="toolbar">
+
+        <input
+            type="text"
+            id="searchInventory"
+            placeholder="Search inventory...">
+
+        <select id="inventoryFilter">
+
+            <option>All Items</option>
+            <option>Seeds</option>
+            <option>Fertilizer</option>
+            <option>Pesticide</option>
+            <option>Fuel</option>
+            <option>Equipment</option>
+
+        </select>
+
+    </div>
+
+
+    <section class="inventory-grid" id="inventoryGrid">
+    </section>
+
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal" id="inventoryModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Add Inventory</h2>
+
+            <span id="closeInventoryModal">&times;</span>
+
+        </div>
+
+        <input
+            type="text"
+            id="itemName"
+            placeholder="Item Name">
+
+        <select id="itemCategory">
+
+            <option value="">Select Category</option>
+            <option>Seeds</option>
+            <option>Fertilizer</option>
+            <option>Pesticide</option>
+            <option>Fuel</option>
+            <option>Equipment</option>
+
+        </select>
+
+        <input
+            type="number"
+            id="itemQuantity"
+            placeholder="Quantity">
+
+        <input
+            type="text"
+            id="itemUnit"
+            placeholder="Unit (kg, litre, bags...)">
+
+        <input
+            type="number"
+            id="itemPrice"
+            placeholder="Price per unit">
+
+        <button id="saveInventory">
+            Add Item
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="inventory.js"></script>
+
+</body>
+</html>
