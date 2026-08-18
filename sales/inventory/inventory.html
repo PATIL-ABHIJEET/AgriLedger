@@ -1,137 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Inventory | AgriLedger</title>
 
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="inventory.css">
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-</head>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
 <body>
 
 <div class="container">
 
-    <header>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-seedling"></i>
+            <h2>AgriLedger</h2>
+        </div>
+        <nav>
+            <a href="../index.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+            <a href="../crop/crop.html"><i class="fa-solid fa-seedling"></i> Crops</a>
+            <a href="../expense/expense.html"><i class="fa-solid fa-wallet"></i> Expenses</a>
+            <a href="../sales/sales.html"><i class="fa-solid fa-cart-shopping"></i> Sales</a>
+            <a href="#" class="active"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a>
+            <a href="#"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+            <a href="#"><i class="fa-solid fa-file-lines"></i> Reports</a>
+            <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+        </nav>
+    </aside>
 
-        <div>
-            <h1>📦 Inventory Management</h1>
-            <p>Track farm supplies and stock levels.</p>
+    <!-- Main Content -->
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <h1>📦 Inventory Management</h1>
+                <p>Track farm supplies and stock levels.</p>
+            </div>
+
+            <button id="addInventoryBtn">
+                <i class="fa-solid fa-plus"></i>
+                Add Inventory
+            </button>
+        </header>
+
+        <section class="summary">
+            <div class="summary-card">
+                <h3>Total Items</h3>
+                <h2 id="totalItems">0</h2>
+            </div>
+
+            <div class="summary-card">
+                <h3>Total Stock Value</h3>
+                <h2 id="totalValue">₹0</h2>
+            </div>
+
+            <div class="summary-card">
+                <h3>Low Stock</h3>
+                <h2 id="lowStock">0</h2>
+            </div>
+        </section>
+
+        <div class="toolbar">
+            <input type="text" id="searchInventory" placeholder="Search inventory...">
+
+            <select id="inventoryFilter">
+                <option value="">All Items</option>
+                <option>Seeds</option>
+                <option>Fertilizer</option>
+                <option>Pesticide</option>
+                <option>Fuel</option>
+                <option>Equipment</option>
+            </select>
         </div>
 
-        <button id="addInventoryBtn">
-            <i class="fa-solid fa-plus"></i>
-            Add Inventory
-        </button>
+        <section class="inventory-grid" id="inventoryGrid">
+            <!-- Dynamic inventory items loaded via inventory.js -->
+        </section>
 
-    </header>
-
-
-    <section class="summary">
-
-        <div class="summary-card">
-            <h3>Total Items</h3>
-            <h2 id="totalItems">0</h2>
-        </div>
-
-        <div class="summary-card">
-            <h3>Total Stock Value</h3>
-            <h2 id="totalValue">₹0</h2>
-        </div>
-
-        <div class="summary-card">
-            <h3>Low Stock</h3>
-            <h2 id="lowStock">0</h2>
-        </div>
-
-    </section>
-
-
-    <div class="toolbar">
-
-        <input
-            type="text"
-            id="searchInventory"
-            placeholder="Search inventory...">
-
-        <select id="inventoryFilter">
-
-            <option>All Items</option>
-            <option>Seeds</option>
-            <option>Fertilizer</option>
-            <option>Pesticide</option>
-            <option>Fuel</option>
-            <option>Equipment</option>
-
-        </select>
-
-    </div>
-
-
-    <section class="inventory-grid" id="inventoryGrid">
-    </section>
+    </main>
 
 </div>
 
-
-<!-- Modal -->
-
+<!-- Add Inventory Modal -->
 <div class="modal" id="inventoryModal">
-
     <div class="modal-content">
-
         <div class="modal-header">
-
             <h2>Add Inventory</h2>
-
             <span id="closeInventoryModal">&times;</span>
-
         </div>
 
-        <input
-            type="text"
-            id="itemName"
-            placeholder="Item Name">
+        <input type="text" id="itemName" placeholder="Item Name">
 
         <select id="itemCategory">
-
             <option value="">Select Category</option>
             <option>Seeds</option>
             <option>Fertilizer</option>
             <option>Pesticide</option>
             <option>Fuel</option>
             <option>Equipment</option>
-
         </select>
 
-        <input
-            type="number"
-            id="itemQuantity"
-            placeholder="Quantity">
+        <input type="number" id="itemQuantity" placeholder="Quantity">
+        <input type="text" id="itemUnit" placeholder="Unit (kg, litre, bags...)">
+        <input type="number" id="itemPrice" placeholder="Price per unit">
 
-        <input
-            type="text"
-            id="itemUnit"
-            placeholder="Unit (kg, litre, bags...)">
-
-        <input
-            type="number"
-            id="itemPrice"
-            placeholder="Price per unit">
-
-        <button id="saveInventory">
-            Add Item
-        </button>
-
+        <button id="saveInventory">Add Item</button>
     </div>
-
 </div>
-
 
 <script src="inventory.js"></script>
 

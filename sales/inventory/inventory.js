@@ -9,6 +9,7 @@ const saveBtn = document.getElementById("saveInventory");
 const grid = document.getElementById("inventoryGrid");
 
 
+// Open Modal
 addBtn.onclick = () => {
 
     modal.style.display = "flex";
@@ -16,6 +17,7 @@ addBtn.onclick = () => {
 };
 
 
+// Close Modal
 closeBtn.onclick = () => {
 
     modal.style.display = "none";
@@ -23,9 +25,10 @@ closeBtn.onclick = () => {
 };
 
 
+// Close when clicking outside
 window.onclick = (e) => {
 
-    if(e.target === modal){
+    if (e.target === modal) {
 
         modal.style.display = "none";
 
@@ -34,20 +37,32 @@ window.onclick = (e) => {
 };
 
 
+// Add Inventory
 saveBtn.onclick = () => {
 
-    const name = document.getElementById("itemName").value.trim();
+    const name =
+        document.getElementById("itemName").value.trim();
 
-    const category = document.getElementById("itemCategory").value;
+    const category =
+        document.getElementById("itemCategory").value;
 
-    const quantity = document.getElementById("itemQuantity").value;
+    const quantity =
+        document.getElementById("itemQuantity").value;
 
-    const unit = document.getElementById("itemUnit").value.trim();
+    const unit =
+        document.getElementById("itemUnit").value.trim();
 
-    const price = document.getElementById("itemPrice").value;
+    const price =
+        document.getElementById("itemPrice").value;
 
 
-    if(name === "" || category === "" || quantity === "" || unit === "" || price === ""){
+    if (
+        name === "" ||
+        category === "" ||
+        quantity === "" ||
+        unit === "" ||
+        price === ""
+    ) {
 
         alert("Please complete all fields.");
 
@@ -56,9 +71,12 @@ saveBtn.onclick = () => {
     }
 
 
-    const totalValue = Number(quantity) * Number(price);
+    const totalValue =
+        Number(quantity) * Number(price);
 
-    const card = document.createElement("div");
+
+    const card =
+        document.createElement("div");
 
     card.className = "inventory-card";
 
@@ -83,27 +101,39 @@ saveBtn.onclick = () => {
         </p>
 
         <p class="stock-value">
-            Stock Value: ₹${totalValue.toLocaleString("en-IN")}
+            Stock Value:
+            ₹${totalValue.toLocaleString("en-IN")}
         </p>
 
         ${
             Number(quantity) <= 10
-            ? `<span class="low-stock">⚠ Low Stock</span>`
-            : ""
+            ?
+            `<span class="low-stock">
+                ⚠ Low Stock
+            </span>`
+            :
+            ""
         }
 
-        <br>
+        <div class="inventory-actions">
 
-        <button class="delete-item">
-            Delete
-        </button>
+            <button class="delete-item">
+                <i class="fa-solid fa-trash"></i>
+                Delete
+            </button>
+
+        </div>
 
     `;
 
 
     grid.appendChild(card);
 
-    attachDelete(card.querySelector(".delete-item"));
+
+    attachDelete(
+        card.querySelector(".delete-item")
+    );
+
 
     saveData();
 
@@ -113,22 +143,31 @@ saveBtn.onclick = () => {
     modal.style.display = "none";
 
 
+    // Clear form
+
     document.getElementById("itemName").value = "";
+
     document.getElementById("itemCategory").value = "";
+
     document.getElementById("itemQuantity").value = "";
+
     document.getElementById("itemUnit").value = "";
+
     document.getElementById("itemPrice").value = "";
 
 };
 
 
-function attachDelete(button){
+// Delete Inventory
+function attachDelete(button) {
 
     button.addEventListener("click", () => {
 
-        if(confirm("Delete this inventory item?")){
+        if (confirm("Delete this inventory item?")) {
 
-            button.closest(".inventory-card").remove();
+            button
+                .closest(".inventory-card")
+                .remove();
 
             saveData();
 
@@ -141,7 +180,8 @@ function attachDelete(button){
 }
 
 
-function saveData(){
+// Save to Local Storage
+function saveData() {
 
     localStorage.setItem(
         "inventoryData",
@@ -151,13 +191,17 @@ function saveData(){
 }
 
 
-function loadData(){
+// Load from Local Storage
+function loadData() {
 
-    const data = localStorage.getItem("inventoryData");
+    const data =
+        localStorage.getItem("inventoryData");
 
-    if(data){
+
+    if (data) {
 
         grid.innerHTML = data;
+
 
         document
             .querySelectorAll(".delete-item")
@@ -169,15 +213,18 @@ function loadData(){
 
     }
 
+
     updateSummary();
 
 }
 
 
-function updateSummary(){
+// Update Summary
+function updateSummary() {
 
     const cards =
         document.querySelectorAll(".inventory-card");
+
 
     let totalValue = 0;
 
@@ -186,17 +233,22 @@ function updateSummary(){
 
     cards.forEach(card => {
 
-        const value = card
-            .querySelector(".stock-value")
-            .innerText
-            .replace("Stock Value: ₹","")
-            .replace(/,/g,"")
-            .trim();
+        const value =
+            card
+                .querySelector(".stock-value")
+                .innerText
+                .replace("Stock Value:", "")
+                .replace("₹", "")
+                .replace(/,/g, "")
+                .trim();
+
 
         totalValue += Number(value);
 
 
-        if(card.querySelector(".low-stock")){
+        if (
+            card.querySelector(".low-stock")
+        ) {
 
             lowStock++;
 
@@ -219,13 +271,15 @@ function updateSummary(){
 }
 
 
+// Search Inventory
 const search =
     document.getElementById("searchInventory");
 
 
 search.addEventListener("keyup", () => {
 
-    const value = search.value.toLowerCase();
+    const value =
+        search.value.toLowerCase();
 
 
     document
@@ -233,9 +287,10 @@ search.addEventListener("keyup", () => {
         .forEach(card => {
 
             const name =
-                card.querySelector("h2")
-                .innerText
-                .toLowerCase();
+                card
+                    .querySelector("h2")
+                    .innerText
+                    .toLowerCase();
 
 
             card.style.display =
@@ -248,13 +303,15 @@ search.addEventListener("keyup", () => {
 });
 
 
+// Category Filter
 const filter =
     document.getElementById("inventoryFilter");
 
 
 filter.addEventListener("change", () => {
 
-    const value = filter.value.toLowerCase();
+    const value =
+        filter.value.toLowerCase();
 
 
     document
@@ -262,21 +319,22 @@ filter.addEventListener("change", () => {
         .forEach(card => {
 
             const category =
-                card.querySelectorAll("p")[0]
-                .innerText
-                .replace("Category:","")
-                .trim()
-                .toLowerCase();
+                card
+                    .querySelectorAll("p")[0]
+                    .innerText
+                    .replace("Category:", "")
+                    .trim()
+                    .toLowerCase();
 
 
-            if(
+            if (
                 value === "all items" ||
                 category === value
-            ){
+            ) {
 
                 card.style.display = "block";
 
-            }else{
+            } else {
 
                 card.style.display = "none";
 
@@ -287,4 +345,5 @@ filter.addEventListener("change", () => {
 });
 
 
+// Start Application
 loadData();

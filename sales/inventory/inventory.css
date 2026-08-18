@@ -175,3 +175,35 @@ header p{
     color:white;
     cursor:pointer;
 }
+
+.inventory-actions {
+
+    margin-top: 15px;
+
+}
+
+.delete-item {
+
+    padding: 9px 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #E63946;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.delete-item:hover {
+
+    background: #C92A3A;
+
+    transform: translateY(-2px);
+
+}

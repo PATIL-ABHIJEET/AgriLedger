@@ -11,262 +11,162 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-
 <body>
 
 <div class="container">
 
     <!-- Sidebar -->
-
     <aside class="sidebar">
-
         <div class="logo">
-
             <i class="fa-solid fa-seedling"></i>
-
             <h2>AgriLedger</h2>
-
         </div>
 
         <nav>
-
             <a href="#" class="active">
                 <i class="fa-solid fa-house"></i>
                 Dashboard
             </a>
-
             <a href="crop/crop.html">
-    <i class="fa-solid fa-seedling"></i>
-    Crops
-</a>
-
+                <i class="fa-solid fa-seedling"></i>
+                Crops
+            </a>
             <a href="expense/expense.html">
-    <i class="fa-solid fa-wallet"></i>
-    Expenses
-</a>
-
+                <i class="fa-solid fa-wallet"></i>
+                Expenses
+            </a>
             <a href="sales/sales.html">
-    <i class="fa-solid fa-cart-shopping"></i>
-    Sales
-</a>
-
+                <i class="fa-solid fa-cart-shopping"></i>
+                Sales
+            </a>
             <a href="inventory/inventory.html">
-    <i class="fa-solid fa-boxes-stacked"></i>
-    Inventory
-</a>
-
+                <i class="fa-solid fa-boxes-stacked"></i>
+                Inventory
+            </a>
             <a href="#">
                 <i class="fa-solid fa-chart-line"></i>
                 Analytics
             </a>
-
             <a href="#">
                 <i class="fa-solid fa-file-lines"></i>
                 Reports
             </a>
-
             <a href="#">
                 <i class="fa-solid fa-gear"></i>
                 Settings
             </a>
-
         </nav>
-
     </aside>
 
-    <!-- Main -->
-
+    <!-- Main Content -->
     <main class="main">
 
         <!-- Topbar -->
-
         <header class="topbar">
-
             <div class="search">
-
                 <i class="fa-solid fa-magnifying-glass"></i>
-
-                <input
-                    type="text"
-                    placeholder="Search..."
-                >
-
+                <input type="text" placeholder="Search...">
             </div>
 
             <div class="top-right">
-
                 <button class="notification">
-    <i class="fa-solid fa-bell"></i>
-    <span class="badge">3</span>
-</button>
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
 
                 <div class="profile">
-
-                    <img
-                        src="https://i.pravatar.cc/100"
-                        alt=""
-                    >
-
+                    <img src="https://i.pravatar.cc/100" alt="Profile">
                     <div>
-
                         <h4>Abhijeet</h4>
-
                         <p>Farmer</p>
-
                     </div>
-
                 </div>
-
             </div>
-
         </header>
 
-        <!-- Welcome -->
-
         <!-- Quick Actions -->
-
-<section class="quick-actions">
-
-    <button>
-        <i class="fa-solid fa-plus"></i>
-        Add Expense
-    </button>
-
-    <button>
-        <i class="fa-solid fa-seedling"></i>
-        Add Crop
-    </button>
-
-    <button>
-        <i class="fa-solid fa-cart-plus"></i>
-        Record Sale
-    </button>
-
-    <button>
-        <i class="fa-solid fa-box"></i>
-        Inventory Entry
-    </button>
-
-</section>
-
-        <!-- KPI -->
-
-        <section class="cards">
-
-            <div class="card">
-
-                <i class="fa-solid fa-wallet"></i>
-
-                <h2 class="counter" data-target="52000">0</h2>
-
-                <p>Total Expenses</p>
-
-            </div>
-
-            <div class="card">
-
-                <i class="fa-solid fa-indian-rupee-sign"></i>
-
-                <h2 class="counter" data-target="92000">0</h2>
-
-                <p>Total Sales</p>
-
-            </div>
-
-            <div class="card">
-
-                <i class="fa-solid fa-chart-line"></i>
-
-                <h2 class="counter" data-target="42000">0</h2>
-
-                <p>Net Profit</p>
-
-            </div>
-
-            <div class="card">
-
+        <section class="quick-actions">
+            <button>
+                <i class="fa-solid fa-plus"></i>
+                Add Expense
+            </button>
+            <button>
                 <i class="fa-solid fa-seedling"></i>
+                Add Crop
+            </button>
+            <button>
+                <i class="fa-solid fa-cart-plus"></i>
+                Record Sale
+            </button>
+            <button>
+                <i class="fa-solid fa-box"></i>
+                Inventory Entry
+            </button>
+        </section>
 
-                <h2 class="counter" data-target="6">0</h2>
-
-                <p>Active Crops</p>
-
+        <!-- KPI Cards -->
+        <section class="cards">
+            <div class="card">
+                <i class="fa-solid fa-wallet"></i>
+                <h2 class="counter" data-target="52000">0</h2>
+                <p>Total Expenses</p>
             </div>
-
+            <div class="card">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+                <h2 class="counter" data-target="92000">0</h2>
+                <p>Total Sales</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2 class="counter" data-target="42000">0</h2>
+                <p>Net Profit</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-seedling"></i>
+                <h2 class="counter" data-target="6">0</h2>
+                <p>Active Crops</p>
+            </div>
         </section>
 
         <!-- Charts -->
-
         <section class="charts">
-
             <div class="chart-card">
-
                 <h3>Profit Overview</h3>
-
                 <canvas id="profitChart"></canvas>
-
             </div>
-
             <div class="chart-card">
-
                 <h3>Expense Breakdown</h3>
-
                 <canvas id="expenseChart"></canvas>
-
             </div>
-
         </section>
 
-        <!-- Bottom -->
-
+        <!-- Bottom Grid -->
         <section class="bottom-grid">
-
             <div class="inventory">
-
                 <h3>Inventory</h3>
-
                 <ul>
-
                     <li>🌾 Wheat Seeds</li>
-
                     <li>💧 Fertilizer</li>
-
                     <li>🚜 Diesel</li>
-
                     <li>🧪 Pesticides</li>
-
                 </ul>
-
             </div>
-
             <div class="activity">
-
                 <h3>Recent Activity</h3>
-
                 <ul>
-
                     <li>Added Expense</li>
-
                     <li>Recorded Sale</li>
-
                     <li>Updated Inventory</li>
-
                     <li>Added Crop</li>
-
                 </ul>
-
             </div>
-
         </section>
 
         <footer class="footer">
-
-© 2026 AgriLedger | Smart Farm Management System
-
-</footer>
+            © 2026 AgriLedger | Smart Farm Management System
+        </footer>
 
     </main>
 
@@ -274,6 +174,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
